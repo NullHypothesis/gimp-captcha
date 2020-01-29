@@ -51,7 +51,7 @@ from gimpenums import EXTENSION
 # ==========
 
 # Units are generally in pixels:
-CAPTCHA_LETTERS = 8
+CAPTCHA_LETTERS = 7
 CAPTCHA_WIDTH   = 400
 CAPTCHA_HEIGHT  = 125
 FONT_HEIGHT     = 80
@@ -60,9 +60,9 @@ LEFT_MARGIN     = 10
 # Remove characters to reduce confusion. No l, or o, for instance, as running
 # them together might look like b or d.
 CAPTCHA_CHARS   = 'aAbdeEfFgGjJknNMpPqQstTuvxyYzZ2479'
-LETTER_SPACING  = -12
+LETTER_SPACING  = -0.5
 # Rotate individual letters, in radians:
-ANGLE_RANGE     = (-0.30, 0.25)
+ANGLE_RANGE     = (-0.1, 0.1)
 
 FONTS = ['Sans', 'Serif', 'Monospace', 'Serif Bold', 'Century Schoolbook',
          'DejaVu Sans', 'DejaVu Sans Bold', 'FreeMono', 'FreeSerif']
@@ -174,7 +174,7 @@ def make_captcha(sx, sy, font_height, letter_spacing, left_margin,
 
     # After the cutout, blur the dark noise layer and then darken it:
     gpdb.plug_in_gauss_iir(img, dark_noise_layer, 1, 1, 1)
-    gpdb.gimp_levels(dark_noise_layer, HISTOGRAM_VALUE, 127, 255, 0.25, 0, 255)
+    gpdb.gimp_levels(dark_noise_layer, HISTOGRAM_VALUE, 250, 255, 0.25, 0, 255)
     textLayer.visible = False
 
     # If you start gimp without --no-interface with an X server, this
