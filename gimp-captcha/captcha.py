@@ -122,8 +122,8 @@ def make_captcha(sx, sy, font_height, letter_spacing, left_margin,
     # scatter, then run it through levels to darken it, then
     # blur. This should be equivalent to hurl + blur.
     #gpdb.plug_in_randomize_hurl(img, light_noise_layer, 1, 1, 0, 0)
-    gpdb.plug_in_scatter_hsv(img, light_noise_layer, 1, 25, 200, 180)
-    gpdb.plug_in_gauss_iir(img, light_noise_layer, 1, 1, 1)
+    gpdb.plug_in_hsv_noise(img, light_noise_layer, 8, 0, 255, 255)
+    gpdb.plug_in_gauss_iir(img, light_noise_layer, 1, 0.5, 0.5)
     gpdb.gimp_desaturate(light_noise_layer)
 
     # Next make pure black layer which we will copy repeatedly as a
