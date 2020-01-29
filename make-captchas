@@ -53,9 +53,9 @@ def getArgParser():
 def findGimpDir():
     """Try to find our gimp directory.
 
-    It should be something like ``$HOME/.gimp-2.8``.
+    It should be something like ``$HOME/.config/GIMP/2.10``.
     """
-    homedir=os.path.expanduser("~/.gimp")
+    homedir=os.path.expanduser("~/.config/GIMP/2.10")
     gimpdir=glob.glob(homedir + "*")
     if not len(gimpdir) > 0:
         return SystemExit("Could not find Gimp data directory in $HOME")
